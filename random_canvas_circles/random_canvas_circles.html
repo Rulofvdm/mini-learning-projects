@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- saved from url=(0095)https://mdn.github.io/learning-area/javascript/building-blocks/loops/random-canvas-circles.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Random canvas circles</title>
+    <style>
+      html {
+        width: 100%;
+        height: inherit;
+      }
+
+      canvas {
+        display: block;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      button {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+      }
+    </style>
+  </head>
+  <body>
+
+  <button>Update</button>
+
+  <canvas width="1366" height="666"></canvas>
+
+
+    <script>
+    const btn = document.querySelector('button');
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+
+
+    let WIDTH = document.documentElement.clientWidth;
+    let HEIGHT = document.documentElement.clientHeight;
+
+    canvas.width = WIDTH;
+    canvas.height = HEIGHT;
+
+    function random(number) {
+      return Math.floor(Math.random()*number);
+    }
+
+  
+
+    function draw() {
+      ctx.clearRect(0,0,WIDTH,HEIGHT);
+      ctx.fillStyle = "#ccc";
+      ctx.fillRect(0,0, WIDTH, HEIGHT);
+
+      for(let i = 0; i < 50; i++) {
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba('+ random(255) + ',' + random(255) + ',' + random(255) + ',0.2)';
+        ctx.arc(random(WIDTH), random(HEIGHT), random(70), 0, 2 * Math.PI);
+        ctx.fill();
+      }
+    }
+
+    btn.addEventListener('click',draw);
+
+    </script>
+
+  
+
+</body></html>

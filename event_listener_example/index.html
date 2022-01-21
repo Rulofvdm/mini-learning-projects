@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- saved from url=(0104)https://mdn.github.io/learning-area/javascript/building-blocks/events/random-color-addeventlistener.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Random color example —&nbsp;event handler attribute</title>
+    <style>
+      button {
+        margin: 10px
+      };
+    </style>
+  </head>
+  <body>
+    <button>Change color</button>
+    <script>
+      const btn = document.querySelector('button');
+
+      function random(number) {
+        return Math.floor(Math.random() * (number+1));
+      }
+
+      btn.addEventListener('click', () => {
+        const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+        document.body.style.backgroundColor = rndCol;
+      });
+    </script>
+  
+
+</body></html>
